@@ -1,0 +1,18 @@
+After testing in local port:
+
+For flask app:
+pipenv install gunicorn
+heroku login
+pipenv freeze > requirements.txt
+git init
+git add .
+git commit -m "..."
+touch Procfile
+{in the Procfile}
+web: gunicorn -b :$PORT app(/your app's name):app
+git add .
+git commit -m "..."
+heroku create app-name-in-lower-case-dashes-are-allowed
+git push heroku master
+git remote -v {to check if we pushed the file to heroku}
+heroku open
